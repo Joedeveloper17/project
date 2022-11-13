@@ -185,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   
                   }
                            
-          },child: const Text('sigin'),
+          },child: const Text('login'),
           ),
         
               ),
