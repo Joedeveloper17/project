@@ -13,6 +13,7 @@ import 'package:project/admin.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project/files.dart';
 import 'package:project/userapi.dart';
+import 'package:project/web.dart';
 
 void main() {
   
@@ -24,11 +25,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return  MaterialApp(
+   
+    return  const MaterialApp(
       
        debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            }),
+            }), 
       
     );
   }
@@ -162,7 +163,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelText: 'Password',
                     hintText: 'Enter the Password',
                     prefixIcon: Icon(Icons.lock)),
-              ),Container(
+              ),
+              Container(
                 width: double.infinity,
                 child: RawMaterialButton(
                   
@@ -192,21 +194,31 @@ class _LoginScreenState extends State<LoginScreen> {
                   backgroundColor: Colors.black,
                   padding: const EdgeInsets.symmetric(),
                 ),
-                onPressed: (){
+                onPressed: ()
                  
-                  (Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ProfileScreen()),
-                  )); 
+                 async{
+                  User? user=await loginusingEmailpassword(email: email.text,password: password.text context: context);
+                  print(user);
+                  if(user !=null){
+                    Navigator.of(context).pushReplacement( MaterialPageRoute(builder: (context)=>const ProfileScreen()));
+                  
+                  }
                 
                 }, child: const Text('login'), 
+
                 
         
                 
-          ),]
-          ),
-        )
+          ),TextButton(onPressed:() {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const Web()),
+  );
+} , child: const Text('login'))]),
           
+          ),
         );
+          
+        
   }
 }

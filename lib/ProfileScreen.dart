@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:project/Project.dart';
 import 'package:project/User.dart';
@@ -82,10 +80,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 spreadRadius: 0.0,
                               ), //BoxShadow
                             ],
-                          ), 
+                          ),
                           child: CheckboxListTile(
                             title: const Text('Create Project'),
-                            secondary: const Icon(Icons.personal_injury_rounded),
+                            secondary:
+                                const Icon(Icons.personal_injury_rounded),
                             autofocus: false,
                             activeColor: Colors.green,
                             checkColor: Colors.black,
@@ -123,14 +122,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           },
                           child: const Text(
                             'Submit',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                         TextButton(
                           style: TextButton.styleFrom(
                             textStyle: const TextStyle(fontSize: 20),
                             backgroundColor: Colors.blue,
-                            padding: const EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.all(22.0),
                           ),
                           onPressed: () {
                             Navigator.pop(context);

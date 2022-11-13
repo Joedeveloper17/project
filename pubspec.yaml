@@ -41,6 +41,7 @@ dependencies:
   dropdown: ^1.0.2
   dropdown_button2: ^1.4.0
   dropdown_search: ^3.0.1
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:
